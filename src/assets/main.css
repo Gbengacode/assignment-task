@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap");
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  /* overflow: hidden; */
+}
+
+:root {
+  --icon-color: #695a5a;
+}
+
+h2 {
+  color: #3b3535;
+}
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 30px;
+  place-items: center;
+}
+
+.form-container > .card {
+  display: flex;
+  flex-direction: column;
+  background-color: #99ffff;
+  width: 36rem;
+  border-radius: 4px;
+}
+
+.card > .card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.2rem;
+  background: #f5f3f3;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.card-header > .add-icon {
+  font-size: 2rem;
+  color: var(--icon-color);
+  cursor: pointer;
+}
+
+.card-body > form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.form-group > label {
+  display: block;
+  margin: 20px 0 0 5px;
+}
+
+.input-form {
+  background-color: #fff;
+  margin: 5px;
+  display: flex;
+  border-radius: 4px;
+}
+
+.input-form > input {
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.input-form > .task-icon {
+  font-size: 20px;
+  padding: 5px;
+  color: var(--icon-color);
+}
+
+.input-form > .date-icon {
+  font-size: 20px;
+  padding: 10px 5px 5px 5px;
+  color: var(--icon-color);
+}
+
+.input-form > .time-icon {
+  font-size: 20px;
+  padding: 5px;
+  color: var(--icon-color);
+}
+
+.input-form > .caret-icon {
+  font-size: 20px;
+  padding: 5px;
+  color: var(--icon-color);
+}
+.form-group-inline {
+  display: flex;
+  justify-content: space-between;
+}
+
+input[type="date"] {
+  position: relative;
+  margin-right: 10px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+select {
+  border: none;
+  background: #fff;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin-right: 10px;
+  width: 100%;
+  padding: 10px;
+
+  /* padding: 5px; */
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.action-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.trash-icon {
+  display: block;
+  margin: 35px;
+  font-size: 25px;
+  color: var(--icon-color);
+  cursor: pointer;
+}
+
+.button-group > .btn-add {
+  background: #28a745;
+  color: #fff;
+}
+
+.edit-panel {
+  display: grid;
+  padding: 20px;
+}
+.user-detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.assign-name {
+  display: flex;
+  gap: 20px;
+}
+
+.assign-name > h2 {
+  font-size: 0.9rem;
+}
+
+.task-body {
+  margin-top: 15px;
+}
+
+.task-body > p {
+  line-height: 30px;
+}
+
+.btn-edit {
+  font-size: 20px;
+  color: var(--icon-color);
+  cursor: pointer;
+}
+
+/* media query */
+@media only screen and (max-width: 991px) {
+  .form-container > .card {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    border-radius: 4px;
+  }
+  .assign-name {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .assign-name > h2 {
+    font-size: 0.7rem;
+  }
+
+  .btn-edit {
+    font-size: 15px;
+  }
+
+  .form-group-inline {
+    flex-direction: column;
+  }
+
+  .action-group {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .edit-panel {
+    padding: 5px;
+  }
+}

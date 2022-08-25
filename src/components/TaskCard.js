@@ -36,9 +36,15 @@ const TaskForm = () => {
     setShowAdd(true);
     setShowEditPanel(false);
     setShowEditForm(false);
+    setTaskDesc("")
+    setTime("12:00:00: PM")
+    setDate("")
+    setAssigned("")
+
   };
   const handleClickSave = (e) => {
     e.preventDefault();
+
     let error = false;
     if (taskDesc.trim() === "" || date.trim() === "" || assigned.trim() === "")  {
       error = true;

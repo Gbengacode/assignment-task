@@ -211,8 +211,11 @@ const TaskForm = () => {
                   <label>Assigned</label>
                   <div className="input-form">
                     <select onChange={(e) => setAssigned(e.target.value)}>
-                      <option value="invite_2d17a5ba72364b67855743a299cbac92">
-                        invite_2d17a5ba72364b67855743a299cbac92
+                    <option value="Sura">
+                        Sura
+                      </option>
+                      <option value="Mithlesh">
+                        Mithlesh
                       </option>
                     </select>
                     <span className="caret-icon">
@@ -355,8 +358,11 @@ const TaskForm = () => {
                         setAssigned(e.target.value);
                       }}
                     >
-                      <option value="invite_2d17a5ba72364b67855743a299cbac92">
-                        invite_2d17a5ba72364b67855743a299cbac92
+                      <option value="Sura">
+                        Sura
+                      </option>
+                      <option value="Mithlesh">
+                        Mithlesh
                       </option>
                     </select>
                     <span className="caret-icon">

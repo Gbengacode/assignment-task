@@ -3,7 +3,6 @@ import { AiFillPlusSquare } from "react-icons/ai";
 import moment from "moment";
 import {
   BsCalendarDateFill,
-  BsFillArrowLeftSquareFill,
   BsFillPencilFill,
 } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
@@ -12,6 +11,7 @@ import { TiArrowUnsorted } from "react-icons/ti";
 import { FiTrash2 } from "react-icons/fi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Time from './Time'
 
 import {
   getTask,
@@ -23,7 +23,7 @@ import {
 const TaskForm = () => {
   const [id, setId] = useState(1);
   const [taskDesc, setTaskDesc] = useState("");
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState("12:00:00: PM");
   const [date, setDate] = useState("");
   const [assigned, setAssigned] = useState("");
   const [showAdd, setShowAdd] = useState(false);
@@ -39,11 +39,13 @@ const TaskForm = () => {
   };
   const handleClickSave = (e) => {
     e.preventDefault();
-    let error = BsFillArrowLeftSquareFill;
-    if (taskDesc.trim() === "") {
+    let error = false;
+    if (taskDesc.trim() === "" || date.trim() === "" || assigned.trim() === "")  {
       error = true;
       notify();
     }
+
+   
     if (!error) {
       const task = {
         assigned_user: assigned,
@@ -59,7 +61,6 @@ const TaskForm = () => {
         ),
         task_msg: taskDesc,
       };
-
       dispatch(postTask(task));
       setShowEditPanel(true);
       setShowAdd(false);
@@ -176,32 +177,11 @@ const TaskForm = () => {
                       <span className="task-icon">
                         <BiTimeFive />
                       </span>
-                      <select onChange={(e) => setTime(e.target.value)}>
-                      <option value="12:00:00: PM">12:00:00: PM</option>
-                        <option value="1:00:00: PM">1:00:00: PM</option>
-                        <option value="2:00:00: PM">2:00:00: PM</option>
-                        <option value="3:00:00: PM">3:00:00: PM</option>
-                        <option value="4:00:00: PM">4:00:00: PM</option>
-                        <option value="5:00:00: PM">5:00:00: PM</option>
-                        <option value="6:00:00: PM">6:00:00: PM</option>
-                        <option value="7:00:00: PM">7:00:00: PM</option>
-                        <option value="8:00:00: PM">8:00:00: PM</option>
-                        <option value="9:00:00: PM">9:00:00: PM</option>
-                        <option value="10:00:00: PM">10:00:00: PM</option>
-                        <option value="11:00:00: PM">11:00:00: PM</option>
-                        <option value="12:00:00: AM">12:00:00: AM</option>
-                        <option value="1:00:00: AM">1:00:00: AM</option>
-                        <option value="2:00:00: AM">2:00:00: AM</option>
-                        <option value="3:00:00: AM">3:00:00: AM</option>
-                        <option value="4:00:00: AM">4:00:00: AM</option>
-                        <option value="5:00:00: AM">5:00:00: AM</option>
-                        <option value="6:00:00: AM">6:00:00: AM</option>
-                        <option value="7:00:00: AM">7:00:00: AM</option>
-                        <option value="8:00:00: AM">8:00:00: AM</option>
-                        <option value="9:00:00: AM">9:00:00: AM</option>
-                        <option value="10:00:00: AM">10:00:00: AM</option>
-                        <option value="11:00:00: AM">11:00:00: AM</option>
-
+                      <select value={time} onChange={(e) => setTime(e.target.value)}>
+                        { Time && Time.map(t =>
+                      <option value={t} key={t}>{t}</option>
+                        )
+                        }
                       </select>
                     </div>
                   </div>
@@ -210,7 +190,8 @@ const TaskForm = () => {
                 <div className="form-group">
                   <label>Assigned</label>
                   <div className="input-form">
-                    <select onChange={(e) => setAssigned(e.target.value)}>
+                    <select value ={assigned} onChange={(e) => setAssigned(e.target.value)}>
+                    <option value="">Select Assignee</option>
                     <option value="Sura">
                         Sura
                       </option>
@@ -316,35 +297,11 @@ const TaskForm = () => {
                       <span className="task-icon">
                         <BiTimeFive />
                       </span>
-                      <select
-                        onChange={(e) => {
-                          setTime(e.target.value);
-                        }}
-                      >
-                        <option value="12:00:00: PM">12:00:00: PM</option>
-                        <option value="1:00:00: PM">1:00:00: PM</option>
-                        <option value="2:00:00: PM">2:00:00: PM</option>
-                        <option value="3:00:00: PM">3:00:00: PM</option>
-                        <option value="4:00:00: PM">4:00:00: PM</option>
-                        <option value="5:00:00: PM">5:00:00: PM</option>
-                        <option value="6:00:00: PM">6:00:00: PM</option>
-                        <option value="7:00:00: PM">7:00:00: PM</option>
-                        <option value="8:00:00: PM">8:00:00: PM</option>
-                        <option value="9:00:00: PM">9:00:00: PM</option>
-                        <option value="10:00:00: PM">10:00:00: PM</option>
-                        <option value="11:00:00: PM">11:00:00: PM</option>
-                        <option value="12:00:00: AM">12:00:00: AM</option>
-                        <option value="1:00:00: AM">1:00:00: AM</option>
-                        <option value="2:00:00: AM">2:00:00: AM</option>
-                        <option value="3:00:00: AM">3:00:00: AM</option>
-                        <option value="4:00:00: AM">4:00:00: AM</option>
-                        <option value="5:00:00: AM">5:00:00: AM</option>
-                        <option value="6:00:00: AM">6:00:00: AM</option>
-                        <option value="7:00:00: AM">7:00:00: AM</option>
-                        <option value="8:00:00: AM">8:00:00: AM</option>
-                        <option value="9:00:00: AM">9:00:00: AM</option>
-                        <option value="10:00:00: AM">10:00:00: AM</option>
-                        <option value="11:00:00: AM">11:00:00: AM</option>
+                      <select value={time} onChange={(e) => setTime(e.target.value)}>
+                        { Time && Time.map(t =>
+                      <option value={t} key={t}>{t}</option>
+                        )
+                        }
                       </select>
                     </div>
                   </div>
@@ -354,6 +311,7 @@ const TaskForm = () => {
                   <label>Assigned</label>
                   <div className="input-form">
                     <select
+                      value={assigned}
                       onChange={(e) => {
                         setAssigned(e.target.value);
                       }}

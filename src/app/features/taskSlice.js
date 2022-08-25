@@ -27,7 +27,6 @@ export const taskSlice = createSlice({
     },
     [postTask.fulfilled]: (state, action) => {
       state.loading = false;
-      console.log(action.payload);
       state.value.push(action.payload);
     },
     [postTask.rejected]: (state, action) => {

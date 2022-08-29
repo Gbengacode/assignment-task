@@ -33,6 +33,7 @@ const TaskForm = () => {
   const tasks = useSelector((state) => state.tasks.value);
   const notify = () => toast("All field required!");
   const handleClickAdd = () => {
+    
     setShowAdd(true);
     setShowEditPanel(false);
     setShowEditForm(false);

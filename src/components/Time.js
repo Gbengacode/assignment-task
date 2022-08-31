@@ -24,6 +24,7 @@ const Time = [
 "9:00:00: AM",
 "10:00:00: AM",
 "11:00:00: AM"
+
 ]
  
 export default Time;

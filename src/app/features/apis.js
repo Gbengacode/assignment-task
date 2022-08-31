@@ -34,6 +34,7 @@ export const removeTask = createAsyncThunk("/task/removeTask", async (id) => {
   );
 
   return id;
+
 });
 
 export const updateTask = createAsyncThunk("/task/updateTask", async (task) => {
@@ -44,6 +45,7 @@ export const updateTask = createAsyncThunk("/task/updateTask", async (task) => {
     is_completed: task.is_completed,
     task_msg: task.task_msg,
     time_zone: task.time_zone,
+    
   };
   const response = await axios.put(
     `${baseUrl}/${task.id}?company_id=company_413ef22b6237417fb1fba7917f0f69e7`,
